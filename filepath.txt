@@ -1,2 +1,0 @@
-"C:\DBSproj\Add-Copy-as-Path-Option-in-Windows\Add Copy as Path Option in Windows\Add Copy as Path Option.reg"
-
