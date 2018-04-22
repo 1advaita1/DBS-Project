@@ -1,0 +1,1 @@
+powershell.exe gcb > "C:/DBSproj/filepath.txt"

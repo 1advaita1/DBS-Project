@@ -1,0 +1,7 @@
+add-type -assembly presentationcore
+$player = new-object system.windows.media.mediaplayer
+$player.open("C:/Users/advaita/Downloads/Nirvana.mp3")
+$player.play()
+
+$player.pause()
+
