@@ -1,1 +1,0 @@
-powershell.exe gcb > "C:/DBSproj/songinfo/filepath.txt"

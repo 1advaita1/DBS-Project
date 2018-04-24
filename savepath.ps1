@@ -1,1 +1,0 @@
-gcb > "C:/DBSproj/songinfo/filepath.txt"
