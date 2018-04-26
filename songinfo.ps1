@@ -1,27 +1,47 @@
+#Getting filepath and name
 gcb > "C:/DBSproj/songinfo/filepath.txt"
 echo  obtained path
-pause
-$filepat = Get-Content "C:\DBSproj\songinfo\filepath.txt"
-$pathh=Get-ChildItem "$filepat" 
-$pathh.Name > C:\DBSproj\songinfo\Filename.txt
-$filename=Get-Content "C:/DBSproj/songinfo/Filename.txt"
+
+$filepath = Get-Content "C:\DBSproj\songinfo\filepath.txt"
+
+$lpath=Split-Path -Path "$filepath"
+$filename=Split-Path -Leaf "$filepath"
+
+
 echo  obtained Name
 pause
+
+
+#Getting metadata
+cd "$lpath"
 bash -c "pwd"
+pause
+
+bash -c "mp3info -p %t $filename" > C:/DBSproj/songinfo/Filename_true.txt
 
 bash -c "mp3info -p %a $filename" > C:/DBSproj/songinfo/Artists.txt
-Get-Content C:/DBSproj/songinfo/Artists.txt | Set-Content -Encoding utf8 Artists.txt
+
 bash -c "mp3info -p %y $filename" > C:/DBSproj/songinfo/Year.txt
-Get-Content C:/DBSproj/songinfo/Year.txt | Set-Content -Encoding utf8 Year.txt
+
 bash -c "mp3info -p %l $filename" > C:/DBSproj/songinfo/Album.txt
-Get-Content C:/DBSproj/songinfo/Album.txt | Set-Content -Encoding utf8 Album.txt
-bash -c "mp3info -p %g $filename" C:/DBSproj/songinfo/Genre.txt
-Get-Content C:/DBSproj/songinfo/Genre.txt | Set-Content -Encoding utf8 Genre.txt
+
+bash -c "mp3info -p %g $filename" > C:/DBSproj/songinfo/Genre.txt
+
 
 echo  obtained metadata
+
+#Concatenating and encoding
+cd "C:/DBSproj/songinfo"
 pause
 start C:/DBSproj/songinfo/Album_year_concat.bat
-Get-Content C:/DBSproj/songinfo/Album_year_concat.txt | Set-Content -Encoding utf8 Album_year_concat.txt
+pause
+
+start C:/DBSproj/songinfo/song_concat.bat
+
+pause
+
+
+
 pause
 
 
