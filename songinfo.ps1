@@ -27,18 +27,26 @@ bash -c "mp3info -p %l $filename" > C:/DBSproj/songinfo/Album.txt
 
 bash -c "mp3info -p %g $filename" > C:/DBSproj/songinfo/Genre.txt
 
+bash -c "mp3info -p %r $filename" > C:/DBSproj/songinfo/Bitrate.txt
+
+bash -c "mp3info -p %S $filename" > C:/DBSproj/songinfo/Filelength.txt
+
+
 
 echo  obtained metadata
 
 #Concatenating and encoding
+
 cd "C:/DBSproj/songinfo"
 pause
 start C:/DBSproj/songinfo/Album_year_concat.bat
 pause
 
 start C:/DBSproj/songinfo/song_concat.bat
+start C:/DBSproj/songinfo/add_genre_concat.bat
+start C:/DBSproj/songinfo/add_artist_concat.bat
 
-pause
+echo concatenated
 
 
 

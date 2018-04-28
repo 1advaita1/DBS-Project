@@ -1,7 +1,5 @@
+$path=Get-Content "C:/DBSproj/songinfo/filepath.txt"
 add-type -assembly presentationcore
 $player = new-object system.windows.media.mediaplayer
-$player.open("C:/Users/advaita/Downloads/Nirvana.mp3")
+$player.open("$path")
 $player.play()
-
-$player.pause()
-
