@@ -1,4 +1,4 @@
-cd C:/DBSproj/songinfo
+cd "C:/DBSproj/songinfo"
 bash -c "cat fFilename_true.txt fAlbum.txt fArtists.txt > add_artist_concat.txt"
-echo milgaya album
+echo milgaya artist
 pause

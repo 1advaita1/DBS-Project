@@ -13,7 +13,7 @@ $status=Get-Content "C:/DBSproj/status.txt"
 If($status -eq "1") {$player.play()}
 If($status -eq "0") {$player.pause()}
 
-Start-Sleep -m 800
+Start-Sleep -m 400
 }
 pause
 
