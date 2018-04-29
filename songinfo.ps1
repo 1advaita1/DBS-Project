@@ -39,12 +39,10 @@ echo  obtained metadata
 
 cd "C:/DBSproj/songinfo"
 pause
-start C:/DBSproj/songinfo/Album_year_concat.bat
-pause
-
-start C:/DBSproj/songinfo/song_concat.bat
-start C:/DBSproj/songinfo/add_genre_concat.bat
-start C:/DBSproj/songinfo/add_artist_concat.bat
+start C:/DBSproj/songinfo/Album_year_concat.ps1
+start C:/DBSproj/songinfo/song_concat.ps1
+start C:/DBSproj/songinfo/add_genre_concat.ps1
+start C:/DBSproj/songinfo/add_artist_concat.ps1
 
 echo concatenated
 
