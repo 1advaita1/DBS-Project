@@ -35,19 +35,14 @@ bash -c "mp3info -p %S $filename" > C:/DBSproj/songinfo/Filelength.txt
 
 echo  obtained metadata
 
-#Concatenating and encoding
-
-cd "C:/DBSproj/songinfo"
+cd "C:/DBSproj"
 pause
-start C:/DBSproj/songinfo/Album_year_concat.ps1
-start C:/DBSproj/songinfo/song_concat.ps1
-start C:/DBSproj/songinfo/add_genre_concat.ps1
-start C:/DBSproj/songinfo/add_artist_concat.ps1
-
+start C:/DBSproj/Album_year_concat.ps1
+start C:/DBSproj/song_concat.ps1
+start C:/DBSproj/add_genre_concat.ps1
+start C:/DBSproj/add_artist_concat.ps1
+pause
 echo concatenated
-
-
-
 pause
 
 
