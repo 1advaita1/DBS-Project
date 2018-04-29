@@ -1,0 +1,7 @@
+Path
+Artists
+Album
+Genre
+Year
+Languages
+Tags

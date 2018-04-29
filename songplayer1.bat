@@ -1,0 +1,1 @@
+powershell.exe $path=Get-Content "C:/DBSproj/songinfo/filepath.txt" $status=Get-Content "C:/DBSproj/status.txt" add-type -assembly presentationcore $player = new-object system.windows.media.mediaplayer pause $player.open("$path") $status="1" If($status = "1") {$player.play()} If($status = "0") $player.pause()} echo "playing" pause
