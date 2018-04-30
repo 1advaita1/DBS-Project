@@ -1,3 +1,7 @@
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.*;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -121,7 +125,21 @@ public class signup extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+try {
+            Class.forName("com.mysql.jdbc.Driver");  
+Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/songs","root","database");
+            PreparedStatement command = conn.prepareStatement("Insert into Users(username, password) values(?,?)");
+            command.setString(1, jTextField1.getText());
+            command.setString(2, Main.md5(jPasswordField1.getText()));
+            command.executeUpdate();
+ 
+            JOptionPane.showMessageDialog(this, "Register OK !");
+            this.setVisible(false);
+            
+ 
+        } catch (Exception ex) {
+            Logger.getLogger(signup.class.getName()).log(Level.SEVERE, null, ex);
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

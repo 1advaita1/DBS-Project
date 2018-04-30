@@ -1,3 +1,8 @@
+import java.security.MessageDigest;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,6 +14,7 @@
  * @author Roshini Shetty
  */
 public class player extends javax.swing.JFrame {
+
 
     /**
      * Creates new form player
@@ -121,6 +127,26 @@ public class player extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+       try {
+            Class.forName("com.mysql.jdbc.Driver");  
+Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/songs","root","database");
+            PreparedStatement command = conn.prepareStatement("Select * from Users where username=? and password = ?");
+            command.setString(1, jTextField1.getText());
+            command.setString(2, Main.md5(jPasswordField1.getText()));
+            ResultSet rs = command.executeQuery();
+ 
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(this, "Login OK !");
+                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(this, "Login fail !");
+            }
+ 
+        } catch (Exception ex) {
+            Logger.getLogger(signup.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+
+
         new playlist().setVisible(true);
         this.setVisible(false);
         
@@ -134,7 +160,7 @@ public class player extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         new signup().setVisible(true);
-        this.setVisible(false);
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
