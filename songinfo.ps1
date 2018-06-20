@@ -13,13 +13,11 @@ $filename=Split-Path -Leaf "$filepath"
 
 
 echo  obtained Name
-pause
-
 
 #Getting metadata
 cd "$lpath"
 bash -c "pwd"
-pause
+
 
 bash -c "mp3info -p %t $filename" > C:/DBSproj/songinfo/Filename_true.txt
 
@@ -58,30 +56,29 @@ Get-Content "C:/DBSproj/songinfo/Views.txt" | Set-Content -Encoding utf8 "C:/DBS
 Get-Content "C:/DBSproj/songinfo/songp.txt" | Set-Content -Encoding utf8 "C:/DBSproj/songinfo/fsongp.txt"
 
 
-pause
 
 cd "C:/DBSproj/songinfo"
 bash -c "pwd"
 
 bash -c "cat fAlbum.txt fYear.txt > Album_year_concat.txt"
 echo milgaya album
-pause
+
 
 bash -c "cat fFilename_true.txt fAlbum.txt fViews.txt fBitrate.txt fFilelength.txt fsongp.txt>song_concat.txt"
 echo milgaya song!
-pause
+
 
 
 bash -c "cat fFilename_true.txt fAlbum.txt fArtists.txt > add_artist_concat.txt"
 echo milgaya artist
-pause
+
 
 bash -c "cat fFilename_true.txt fAlbum.txt fGenre.txt > add_genre_concat.txt "
-echo milgaya genre
-pause
+echo milgaya genre!
+
 
 echo concatenated
-pause
+
 
 Get-Content "C:/DBSproj/songinfo/Album_year_concat.txt" | Set-Content -Encoding utf8 "C:/DBSproj/songinfo/fAlbum_year_concat.txt"
 
@@ -94,6 +91,7 @@ Get-Content "C:/DBSproj/songinfo/add_artist_concat.txt" | Set-Content -Encoding 
 
 
 echo Encoded.
-pause
+
+
 
 

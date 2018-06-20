@@ -41,6 +41,11 @@ public class player extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,11 +140,18 @@ Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/songs",
             command.setString(2, Main.md5(jPasswordField1.getText()));
             ResultSet rs = command.executeQuery();
  
-            if (rs.next()) {
-                JOptionPane.showMessageDialog(this, "Login OK !");
+            if (rs.next()) 
+            {
                 this.setVisible(false);
-            } else {
+                  JOptionPane.showMessageDialog(this, "Login OK !"); 
+                
+                new playlist().setVisible(true);
+                new playlist().setSize(500,600);
+                new playlist().setLocationRelativeTo(null);         } 
+            else {
                 JOptionPane.showMessageDialog(this, "Login fail !");
+                jTextField1.setText("");
+                jPasswordField1.setText("");
             }
  
         } catch (Exception ex) {
@@ -147,8 +159,7 @@ Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/songs",
         }   
 
 
-        new playlist().setVisible(true);
-        this.setVisible(false);
+       
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -160,8 +171,12 @@ Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/songs",
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         new signup().setVisible(true);
-        
+        new signup().setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+this.setLocationRelativeTo(null);        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
